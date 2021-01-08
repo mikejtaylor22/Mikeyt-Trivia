@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "MikeyT-Trivia"
+    }
+  },
+  "defaultProject": "MikeyT-Trivia",
+  "cli": {
+    "analytics": false
+  }
 }

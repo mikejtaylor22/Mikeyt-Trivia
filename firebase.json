@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/mikeyt-trivia",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

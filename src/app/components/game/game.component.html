@@ -1,0 +1,42 @@
+
+<div class="header">
+    <span><strong>Correct Answers:</strong>  {{scoreService.correctScore$ | async}}</span>
+    <br>
+    <span><strong>Incorrect Answers: </strong>{{scoreService.incorrectScore$ | async}}</span>
+    <div></div>
+    <button class="btn" routerLink=''>Home</button>
+    <div></div>
+    <button class="skipbutton" (click)="getAnyQuestion()" [disabled]="isAnswered">Skip Question</button>
+</div>
+<html>
+    
+<div class="row">
+    <div class="column"></div>
+<div>
+    <p> <strong>Category:</strong> {{trivia.category}}</p>
+    <strong>Question:</strong><p [innerHTML]="trivia.question"> {{trivia.question}}</p>
+
+    <div class="row"></div>
+   <div *ngFor="let possible of possible_answers">
+   <button type="submit" class="btn btn-success btn-lg" (click)="checkAnswer(possible)" [disabled]="isAnswered"  [innerHTML]="possible" style="margin-top: 20px;">{{possible}}</button>
+</div>
+
+<div class="row">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+<div *ngIf="!isCorrectAnswer && isAnswered">
+    <span>The correct answer was: </span>  <p [innerHTML]="trivia.correct_answer"><strong>{{trivia.correct_answer}}</strong></p>
+   
+</div>
+
+
+
+<div *ngIf="isAnswered">
+    <span>{{answerMessage}}</span>
+    <button class="btn btn-primary" (click)="getAnyQuestion()" style="margin-left: 25px;">Next Question</button>
+</div>
+
+    
+    </div>
+    
