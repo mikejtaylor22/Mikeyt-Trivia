@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScoreService } from 'src/app/services/score/score.service';
 import {triviaResponse} from '../../Models/triviaResponse';
 import {TriviaService} from '../../services/trivia/trivia.service';
 
@@ -20,7 +21,7 @@ export class AnyComponent implements OnInit {
   possible_questions = [];
   triviaArray = [];
 
-  constructor(private triviaService: TriviaService) { }
+  constructor(private triviaService: TriviaService,private scoreService:ScoreService) { }
 
   ngOnInit(): void {
 
@@ -78,6 +79,10 @@ checkAnswer(answer:any){
     this.answerMessage = "Incorrect!";
     this.incorrectScore++;
   }
+}
+
+clearAnswers(){
+  this.scoreService.clearCorrectScore();
 }
 
 

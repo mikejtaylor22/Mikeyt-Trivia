@@ -1,14 +1,18 @@
-
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
 <div class="header">
     <span><strong>Correct Answers:</strong>  {{scoreService.correctScore$ | async}}</span>
     <br>
     <span><strong>Incorrect Answers: </strong>{{scoreService.incorrectScore$ | async}}</span>
     <div></div>
-    <button class="btn" routerLink=''>Home</button>
+    <button class="btn" routerLink='' (click)="clearAnswers()">Home</button>
     <div></div>
     <button class="skipbutton" (click)="getAnyQuestion()" [disabled]="isAnswered">Skip Question</button>
 </div>
-<html>
+
     
 <div class="row">
     <div class="column"></div>
@@ -27,7 +31,6 @@
     <div class="column"></div>
 <div *ngIf="!isCorrectAnswer && isAnswered">
     <span>The correct answer was: </span>  <p [innerHTML]="trivia.correct_answer"><strong>{{trivia.correct_answer}}</strong></p>
-   
 </div>
 
 
@@ -39,4 +42,5 @@
 
     
     </div>
-    
+   </div>
+       

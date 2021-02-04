@@ -32,7 +32,6 @@ export class GameComponent implements OnInit {
   getAnyQuestion() {
     this.isAnswered = false;
     this.triviaService.getQuestion().subscribe((data: any) => {
-      console.log(data.results);
       const results = data.results;
       this.trivia = results[0];
       const allAnswers = [
@@ -71,5 +70,9 @@ export class GameComponent implements OnInit {
       this.answerMessage = 'Incorrect!';
       this.scoreService.setIncorrectScore();
     }
+  }
+
+  clearAnswers(){
+    this.scoreService.clearCorrectScore();
   }
 }

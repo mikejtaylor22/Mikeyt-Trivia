@@ -28,4 +28,9 @@ export class ScoreService {
     this.incorrectScoreSubject$.next(this.incorrectScore)
     
   }
+
+  public clearCorrectScore(){
+    this.incorrectScore = 0;
+    this.correctScore = 0;
+  }
 }
